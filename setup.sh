@@ -2,21 +2,16 @@
 
 echo "📦 Setting up EAGLE Toolkit..."
 
-# Step 1: Install python3-venv if not available
-if ! dpkg -s python3-venv >/dev/null 2>&1; then
-    echo "🔧 Installing python3-venv..."
-    sudo apt update && sudo apt install -y python3-venv
+# Make sure pip is available
+if ! command -v pip &> /dev/null; then
+    echo "🔧 Installing pip..."
+    sudo apt update && sudo apt install -y python3-pip
 fi
 
-# Step 2: Create virtual environment
-python3 -m venv venv
+# Install all required packages globally (safe for personal use)
+pip install --break-system-packages --upgrade pip
+pip install --break-system-packages -r requirements.txt
 
-# Step 3: Activate virtual environment
-source venv/bin/activate
-
-# Step 4: Install dependencies
-pip install --upgrade pip
-pip install -r requirements.txt
-
-echo "✅ Setup complete!"
-echo "👉 Run the tool with: source venv/bin/activate && python eagle.py"
+# Run the tool
+echo "✅ Setup complete! Launching EAGLE..."
+python3 eagle.py
