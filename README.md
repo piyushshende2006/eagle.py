@@ -16,7 +16,11 @@ A multi-purpose Python toolkit with features like:
 ```bash
 git clone https://github.com/your-username/eagle-toolkit.git
 cd eagle-toolkit
-pip install -r requirements.txt
+chmod +x setup.sh
+./setup.sh
+source venv/bin/activate
+
+
 ```
 
 ## Run the Tool
