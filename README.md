@@ -18,8 +18,6 @@ git clone https://github.com/your-username/eagle-toolkit.git
 cd eagle-toolkit
 chmod +x setup.sh
 ./setup.sh
-source venv/bin/activate
-
 
 ```
 
