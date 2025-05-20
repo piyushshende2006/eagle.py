@@ -1,0 +1,6 @@
+phonenumbers
+qrcode
+python-barcode
+tqdm
+pyfiglet
+requests
