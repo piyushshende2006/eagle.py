@@ -103,6 +103,8 @@ def qrcode_generator():
     input("PRESS ENTER TO RETURN TO MENU")
 
 # ---------- Tool 6: Phone Number Info ----------
+from phonenumbers import timezone, number_type, PhoneNumberType
+
 def phone_number_info():
     window_size(100, 25)
     print(font("PHONE INFO"))
@@ -110,10 +112,36 @@ def phone_number_info():
     number = input("Enter phone number with country code (e.g. +919876543210): ")
     try:
         parsed = phonenumbers.parse(number)
+
         print("Region:", geocoder.description_for_number(parsed, "en"))
         print("Carrier:", carrier.name_for_number(parsed, "en"))
+        print("Time Zone(s):", timezone.time_zones_for_number(parsed))
+
+        # Number type (e.g., MOBILE, FIXED_LINE)
+        type_dict = {
+            PhoneNumberType.MOBILE: "Mobile",
+            PhoneNumberType.FIXED_LINE: "Fixed Line",
+            PhoneNumberType.FIXED_LINE_OR_MOBILE: "Fixed or Mobile",
+            PhoneNumberType.TOLL_FREE: "Toll Free",
+            PhoneNumberType.PREMIUM_RATE: "Premium Rate",
+            PhoneNumberType.VOIP: "VoIP",
+            PhoneNumberType.PERSONAL_NUMBER: "Personal Number",
+            PhoneNumberType.PAGER: "Pager",
+            PhoneNumberType.UAN: "UAN",
+            PhoneNumberType.VOICEMAIL: "Voicemail",
+            PhoneNumberType.UNKNOWN: "Unknown"
+        }
+
+        num_type = number_type(parsed)
+        print("Number Type:", type_dict.get(num_type, "Unknown"))
+
+        # Validity check
+        print("Valid Number:", phonenumbers.is_valid_number(parsed))
+        print("Possible Number:", phonenumbers.is_possible_number(parsed))
+
     except Exception as e:
         print("Error:", e)
+
     input("PRESS ENTER TO RETURN TO MENU")
 
 # ---------- Tool 7: Subdomain Scanner ----------
