@@ -26,6 +26,8 @@ chmod +x setup.sh
 ```bash
 python eagle.py
 ```
+## HELP ME 
+ if you have any doubts DM me on INSTA : chaitanyaa.exe
 
 ## Dependencies
 
