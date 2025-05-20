@@ -15,7 +15,7 @@ from pyfiglet import Figlet
 
 # ---------- Banner ----------
 def display_banner():
-    banner = Figlet(font="5lineoblique").renderText("EAGLE")
+    banner = Figlet(font="slant").renderText("EAGLE")
     print(banner)
 
 
